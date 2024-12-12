@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>stop&wait</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid" id="cont">
+        
+        <h1 id="titolo">CONTROLLO DI FLUSSO</h1>
+        <h3>Tecnica Stop&Wait</h3>
+    
+        <div id="scenario1" class="bordo">
+            
+                <ul>
+                    <li>Scenario 1: tutto bene ✔</li>
+                </ul>
+            
+                <button id="btn" >Invia</button>
+
+                <div class="hourglass">
+                    <img src=""  id="clessidra">
+                </div>
+                
+            
+                <img src="img/computer.png" alt="computer" class="computer">
+            
+                <img src=""  id="frame1">
+            
+                <img src="img/computer.png" alt="computer" class="computer2">
+            
+                <img src=""  id="spunta">
+                
+        </div>
+
+        <div id="scenario2" class="bordo">
+            
+            <ul>
+                <li>Scenario 2: Il messaggio inviato non arriva</li>
+            </ul>
+        
+            
+            <button id="btn2">Invia</button>
+
+            <div class="hourglass">
+                <img src=""  id="clessidra2">
+            </div>
+            
+        
+            <img src="img/computer.png" alt="computer" class="computer">
+        
+            <img src=""  id="frame2">
+        
+            <img src="img/computer.png" alt="computer" class="computer2">
+        
+            <img src=""  id="spunta2">
+            
+        </div>
+
+        <div id="scenario3" class="bordo">
+            
+            <ul>
+                <li>Scenario 3: il messaggio arriva errato</li>
+            </ul>
+        
+            
+            <button id="btn3">Invia</button>
+
+            <div class="hourglass">
+                <img src=""  id="clessidra3">
+            </div>
+            
+        
+            <img src="img/computer.png" alt="computer" class="computer">
+        
+            <img src=""  id="frame3">
+        
+            <img src="img/computer.png" alt="computer" class="computer2">
+        
+            <img src=""  id="spunta3">
+            
+        </div>
+    
+        <div id="scenario4" class="bordo">
+            
+            <ul>
+                <li>Scenario 4: l'ACK viene perso</li>
+            </ul>
+        
+            
+            <button id="btn4">Invia</button>
+
+            <div class="hourglass">
+                <img src=""  id="clessidra4">
+            </div>
+            
+        
+            <img src="img/computer.png" alt="computer" class="computer">
+        
+            <img src=""  id="frame4">
+        
+            <img src="img/computer.png" alt="computer" class="computer2">
+        
+            <img src=""  id="spunta4">
+            
+        </div>
+
+        <!--form-->
+        
+        <a href="#" id="freccia"><i class="arrow up"></i></a>
+            <!-- domande -->
+            <fieldset id="mySidenav" class="sidenav">
+              <div id="legend">TEST Stop&Wait</div>
+              
+              <div class="content" id="uno">
+                  <p>Per la numerazione dei frame quanti bit si usano?</p>
+                  <div class="form-check">
+                    <input type="radio" id="opz1" name="radio1">
+                    <label class="form-check-label" for="opz1">
+                      1 bit
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" id="opz2" name="radio1">
+                    <label class="form-check-label" for="opz2">
+                      2 bit
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" id="opz3" name="radio1">
+                    <label class="form-check-label" for="opz3">
+                      non si numerano
+                    </label>
+                  </div>
+                  <label id="err0" class="error"></label>
+              </div>
+
+              <div class="content" id="due">
+                <p>Il mittente fa partire un timer quando invia un messaggio</p>
+                <div class="form-check">
+                  <input type="radio" id="2opz1" name="radio2">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="2opz2" name="radio2">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err1" class="error"></label>
+              </div>
+
+              <div class="content" id="tre">
+                <p>Il destinatario non invia una risposta al mittente quando riceve un messaggio</p>
+                <div class="form-check">
+                  <input type="radio" id="3opz1" name="radio3">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="3opz2" name="radio3">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err2" class="error"></label>
+              </div>
+
+              <div class="content" id="quattro">
+                <p>Il destinatario invia un NACK al mittente quando riceve un messaggio corretto</p>
+                <div class="form-check">
+                  <input type="radio" id="4opz1" name="radio4">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="4opz2" name="radio4">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err3" class="error"></label>
+              </div>
+
+              <div class="content" id="cinque">
+                <p>Se entro il timeout del timer il mittente non riceve un messaggio di ACK da parte del destinatario, quest'ultimo invia il messaggio successivo</p>
+                <div class="form-check">
+                  <input type="radio" id="5opz1" name="radio5">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="5opz2" name="radio5">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err4" class="error"></label>
+              </div>
+
+              <div class="content" id="sei">
+                <p>La tecnica stop & wait è una tecnica di controllo dell’errore</p>
+                <div class="form-check">
+                  <input type="radio" id="6opz1" name="radio6">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="6opz2" name="radio6">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err5" class="error"></label>
+              </div>
+
+              <div class="content" id="sette">
+                <p>Utilizzando il controllo di flusso con la tecnica stop & wait il mittente non ha bisogno di aspettare i tempi del destinatario per mandare i messaggi</p>
+                <div class="form-check">
+                  <input type="radio" id="7opz1" name="radio7">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="7opz2" name="radio7">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err6" class="error"></label>
+              </div>
+
+              <div class="content" id="otto">
+                <p>Il controllo di flusso è l’insieme dei meccanismi che consentono di
+                    regolare la velocità di trasmissione dei dati in modo che il ricevente riesca a elaborare ciò
+                    che riceve.
+                    </p>
+                <div class="form-check">
+                  <input type="radio" id="8opz1" name="radio8">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="8opz2" name="radio8">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err7" class="error"></label>
+              </div>
+
+              <div class="content" id="nove">
+                <p>Il destinatario invia una conferma al mittente quando riceve un messaggio, sia che esso sia errato che corretto</p>
+                <div class="form-check">
+                  <input type="radio" id="9opz1" name="radio9">
+                  <label class="form-check-label" for="opz1">
+                    Vero
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="9opz2" name="radio9">
+                  <label class="form-check-label" for="opz2">
+                    Falso
+                  </label>
+                </div>
+                <label id="err8" class="error"></label>
+              </div>
+
+              <div class="content" id="dieci">
+                <p>ACK sta per?</p>
+                <div class="form-check nocapo" >
+                  <input type="radio" id="10opz1" name="radio10">
+                  <label class="form-check-label" for="opz1">
+                    anti aircraft weapon 
+                  </label>
+                </div>
+                <div class="form-check nocapo">
+                  <input type="radio" id="10opz2" name="radio10">
+                  <label class="form-check-label" for="opz2">
+                    acknowledgement 
+                  </label>
+                </div>
+                <div class="form-check nocapo" >
+                  <input type="radio" id="10opz3" name="radio10">
+                  <label class="form-check-label" for="opz3">
+                    simbolo chimico dell’attinio K (francio-223)
+                  </label>
+                </div>
+                <div class="form-check nocapo">
+                  <input type="radio" id="10opz4" name="radio10">
+                  <label class="form-check-label" for="opz4">
+                    Attendant Control Keypad
+                  </label>
+                </div>
+                <div class="form-check nocapo">
+                  <input type="radio" id="10opz5" name="radio10">
+                  <label class="form-check-label" for="opz5">
+                    Automatically Correcting Know-how
+                  </label>
+                </div>
+                  <label id="err9" class="error"></label>
+              </div>
+
+
+              <div id="punti">.../10</div>
+              
+              <div id="bottoni">
+                <button id="btn5">Controlla</button>
+               <button id="btn6">Ripristina</button>
+              </div>
+            
+
+          </fieldset>
+
+    </div>  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
